@@ -5,6 +5,7 @@
 This repository contains
 
 - [Course notes](#course-contents)
+- [Lab assignments](#assignments)
 
 ## Course Info
 
@@ -20,6 +21,13 @@ This repository contains
 |-|----------|-----------------------|
 |0|[Introduction](./notes/Lesson_0.md)||
 |1|[Overview](./notes/Lesson_1.md)|<ul><li>Recap of Quantization Fundamentals course</li><li>Topics to be covered in this course</li></ul>|
+|2|[Quantize and De-quantize a Tensor](./notes/Lesson_2.md)|<ul><li>Deep dive into linear quantization</li><li>Learn scaling factor and zero point</li></ul>|
+
+## Assignments
+
+|Lesson #|Assignment|Description|
+|--------|----------|-----------|
+|2|[L2-A - Linear Quantization I: Quantize and De-quantize a Tensor](./notes/Lesson_2.md#notebook)|<ul><li>Implement assymetric variant of linear quantization from scratch</li><li>Plot Quantization error</li></ul>|
 
 ## Related Courses
 
