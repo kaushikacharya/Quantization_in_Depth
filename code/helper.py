@@ -35,3 +35,19 @@ def plot_quantization_errors(original_tensor, quantized_tensor, dequantized_tens
 
     fig.tight_layout()
     plt.show()
+
+########## Functions from Linear Quantization I (Part 1)
+def linear_q_with_scale_and_zero_point(tensor, scale, zero_point, dtype=torch.int8):
+    scaled_and_shifted_tensor = tensor/scale + zero_point
+
+    rounded_tensor = torch.round(scaled_and_shifted_tensor)
+
+    q_min = torch.iinfo(dtype).min
+    q_max = torch.iinfo(dtype).max
+
+    q_tensor = rounded_tensor.clamp(min=q_min, max=q_max).to(dtype=dtype)
+
+    return q_tensor
+
+def linear_dequantization(quantized_tensor, scale, zero_point):
+    return scale * (quantized_tensor.float() - zero_point)
