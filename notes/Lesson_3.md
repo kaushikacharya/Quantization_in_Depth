@@ -2,7 +2,7 @@
 
 ## Scale and Zero Point
 
-![Scale and Zero Point](../images/3_0.png)
+![Scale and Zero Point](../images/2_1.png)
 
 - Linear quantization maps the floating point range [$r_{min}$, $r_{max}$] to the quantized range [$q_{min}$, $q_{max}$]
 - For the extreme values, we should get
@@ -15,7 +15,7 @@
 
 ## Why make z an integer?
 
-![z an integer](../images/3_1.png)
+![z an integer](../images/2_2.png)
 
 - Make z as the same d-type as the quantized tensor.
 - This is not same d-type as the scale (s).
