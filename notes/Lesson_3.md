@@ -1,32 +1,41 @@
-# Get the Scale and Zero Point
+# Symmetric vs Asymmetric Mode
 
-## Scale and Zero Point
+## Lesson content
 
-![Scale and Zero Point](../images/2_1.png)
+- Symmetric mode of linear quantization
+- Implement quantization at different granularity, such as
+  - per tensor
+  - per channel
+  - per group quantization
+- Check inference on the quantized linear layer
 
-- Linear quantization maps the floating point range [$r_{min}$, $r_{max}$] to the quantized range [$q_{min}$, $q_{max}$]
-- For the extreme values, we should get
-  - $r_{min} = s(q_{min} - z)$
-  - $r_{max} = s(q_{max} - z)$
-- To get scale $s$, subtract the 1st equation from the 2nd one:
-  - $s = (r_{max} - r_{min})/(q_{max} - q_{min})$
-- For the zero point z, we need to round the value since it is a n-bit integer
-  - $z = int(round(q_{min} - r_{min}/s))$
+## Linear Quantization II (Part I)
 
-## Why make z an integer?
+### Linear Quantization Mode
 
-![z an integer](../images/2_2.png)
+- There are two modes in linear quantization:
+  - **Asymmetric**: We map $[r_{min}, r_{max}]$ to $[q_{min}, q_{max}]$
+    - Implemented in previous lesson
+  - **Symmetric**: We map $[-r_{max}, r_{max}]$ to $[-q_{max}, q_{max}]$
+    - where we can set $r_{max} = max(|r_{tensor}|)$
 
-- Make z as the same d-type as the quantized tensor.
-- This is not same d-type as the scale (s).
+- Symmetric mode
+  - Because the floating-point range and the quantized range are symmetric wrt zero, no need to use the zero point ($z=0$)
+  - Simplifies the equations to
+    - $q = int(round(r/s))$
+    - $s = r_{max}/q_{max}$
+  ![Symmetric mode](../images/3_0.png)
 
-## Zero point out of range
+- Trade-off
+  - Utilization of quantized range
+    - Asymmetric quantization fully utilizes the quantized range
+    - In symmetric mode, if the float range is biased towards one side, it will result in a quantized range where a part of the range is dedicated to values that we'll never see.
+      - e.g. RELU where the output is positive
+  - Simplicity
+    - Symmetric mode is much simpler compared to asymmetric mode
+  - Memory
+    - Zero point for symmetric quantization is not stored
 
-- Case 1: $z < q_{min}$
-  - Set $z = q_{min}$
-- Case 2: $z > q_{max}$
-  - Set $z = q_{max}$
-
-## Notebook
-
-- [Jupyter Notebook](../code/L2_linear_I_get_scale_and_zero_point.ipynb)
+- Practice
+  - Symmetric quantization to quantize to 8-bits
+  - Asymmetric quantization is often used to quantize to low bits e.g. 2, 3 or 4 bits
