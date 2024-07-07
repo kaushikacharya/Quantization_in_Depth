@@ -39,3 +39,7 @@
 - Practice
   - Symmetric quantization to quantize to 8-bits
   - Asymmetric quantization is often used to quantize to low bits e.g. 2, 3 or 4 bits
+
+### Notebook (Linear Quantization: Symmetric Mode)
+
+- [Jupyter Notebook](../code/L3_linear_II_symmetric_vs_asymmetric.ipynb)

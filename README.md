@@ -30,6 +30,7 @@ This repository contains
 |--------|----------|-----------|
 |2|[L2-A - Linear Quantization I: Quantize and De-quantize a Tensor](./notes/Lesson_2.md#notebook-quantize-and-de-quantize-a-tensor)|<ul><li>Implement assymetric variant of linear quantization from scratch</li><li>Plot Quantization error</li></ul>|
 |2|[L2-B - Linear Quantization I: Get the Scale and Zero Point](./notes/Lesson_2.md#notebook-get-scale-and-zero-point)|<ul><li>Improve previous lesson's linear quantization implementation by computing scale and zero point</li><li>Mean squared error shows improvement over previous lesson's implementation</li></ul>|
+|3|[L3-A - Linear Quantization II: Symmetric vs. Asymmetric Mode](./notes/Lesson_3.md#notebook-linear-quantization-symmetric-mode)|<ul><li>Implement Linear Quantization: Symmetric Mode</li></ul>|
 
 ## Related Courses
 
