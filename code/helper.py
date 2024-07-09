@@ -88,3 +88,18 @@ def linear_quantization(r_tensor, dtype=torch.int8):
     quantized_tensor = linear_q_with_scale_and_zero_point(tensor=r_tensor, scale=scale, zero_point=zero_point, dtype=dtype)
 
     return quantized_tensor, scale, zero_point
+
+############# From the previous lesson(s) of "Linear Quantization II"
+def get_q_scale_symmetric(tensor, dtype=torch.int8):
+    r_max = tensor.abs().max().item()
+    q_max = torch.iinfo(dtype).max
+
+    # return the scale
+    return r_max/q_max
+
+def linear_q_symmetric(tensor, dtype=torch.int8):
+    scale = get_q_scale_symmetric(tensor, dtype=dtype)
+    # In symmetric quantization zero point = 0
+    quantized_tensor = linear_q_with_scale_and_zero_point(tensor, scale=scale, zero_point=0, dtype=dtype)
+
+    return quantized_tensor, scale

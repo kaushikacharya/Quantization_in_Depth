@@ -43,3 +43,15 @@
 ### Notebook (Linear Quantization: Symmetric Mode)
 
 - [Jupyter Notebook](../code/L3_linear_II_symmetric_vs_asymmetric.ipynb)
+
+## Finer Granularity for more Precision
+
+### Quantization Different Granularities
+
+- The more granularization, the more accurate it will be. However, it will need more memory since we need to store more quantization parameters.
+![Different graniularities](../images/3_1.png)
+- The colored values share the same quantization parameters (e.g. scale, zero-point)
+
+### Notebook (Per-tensor Quantization)
+
+- [Jupyter Notebook](../code/L3_linear_II_per_tensor.ipynb)
