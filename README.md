@@ -32,6 +32,7 @@ This repository contains
 |2|[L2-B - Linear Quantization I: Get the Scale and Zero Point](./notes/Lesson_2.md#notebook-get-scale-and-zero-point)|<ul><li>Improve previous lesson's linear quantization implementation by computing scale and zero point</li><li>Mean squared error shows improvement over previous lesson's implementation</li></ul>|
 |3|[L3-A - Linear Quantization II: Symmetric vs. Asymmetric Mode](./notes/Lesson_3.md#notebook-linear-quantization-symmetric-mode)|<ul><li>Implement Linear Quantization: Symmetric Mode</li></ul>|
 |3|[L3-B - Linear Quantization II: Finer Granularity for more Precision](./notes/Lesson_3.md#notebook-per-tensor-quantization)|<ul><li>Per Tensor symmetric quantization</li></ul>|
+|3|[L3-C - Linear Quantization II: Per Channel Quantization](./notes/Lesson_3.md#notebook-per-channel-quantization)|<ul><li>Per Channel symmetric quantization</li></ul>|
 
 ## Related Courses
 

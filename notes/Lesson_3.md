@@ -52,6 +52,18 @@
 ![Different graniularities](../images/3_1.png)
 - The colored values share the same quantization parameters (e.g. scale, zero-point)
 
-### Notebook (Per-tensor Quantization)
+### Notebook (Per tensor Quantization)
 
 - [Jupyter Notebook](../code/L3_linear_II_per_tensor.ipynb)
+
+## Per Channel Quantization
+
+![Per Channel Quantization](../images/3_2.png)
+
+- Store the scales and zero point for each **row** if we decide to quantize along the rows.
+- Store the scales and zero point for each **column** if we decide to quantize along the columns.
+- Usually per-channel quantization is done in 8-bit quantization.
+
+## Notebook (Per Channel Quantization)
+
+- [Jupyter Notebook](../code/L3_linear_II_per_channel.ipynb)
