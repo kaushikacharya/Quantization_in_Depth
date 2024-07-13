@@ -22,7 +22,7 @@ This repository contains
 |0|[Introduction](./notes/Lesson_0.md)||
 |1|[Overview](./notes/Lesson_1.md)|<ul><li>Recap of Quantization Fundamentals course</li><li>Topics to be covered in this course</li></ul>|
 |2|[Quantize and De-quantize a Tensor](./notes/Lesson_2.md)|<ul><li>Deep dive into linear quantization</li><li>Learn scaling factor and zero point</li></ul>|
-|3|[Symmetric vs Asymmetric Mode](./notes/Lesson_3.md)|<ul><li>Symmetric mode of linear quantization</li><li>Quanitzation at different granularities</li></ul>|
+|3|[Symmetric vs Asymmetric Mode](./notes/Lesson_3.md)|<ul><li>Symmetric mode of linear quantization</li><li>Quantization at different granularities</li></ul>|
 
 ## Assignments
 
@@ -33,9 +33,16 @@ This repository contains
 |3|[L3-A - Linear Quantization II: Symmetric vs. Asymmetric Mode](./notes/Lesson_3.md#notebook-linear-quantization-symmetric-mode)|<ul><li>Implement Linear Quantization: Symmetric Mode</li></ul>|
 |3|[L3-B - Linear Quantization II: Finer Granularity for more Precision](./notes/Lesson_3.md#notebook-per-tensor-quantization)|<ul><li>Per Tensor symmetric quantization</li></ul>|
 |3|[L3-C - Linear Quantization II: Per Channel Quantization](./notes/Lesson_3.md#notebook-per-channel-quantization)|<ul><li>Per Channel symmetric quantization</li></ul>|
+|3|[L3-D - Linear Quantization II: Per Group Quantization](./notes/Lesson_3.md#notebook-per-group-quantization)|<ul><li>Per Group symmetric quantization using per-channel quantization under the hood</li></ul>|
+|3|[L3-E - Linear Quantization II: Quantizing Weights & Activations for Inference](./notes/Lesson_3.md#notebook-quantizing-weights--activations-for-inference)|<ul><li>Compares linear inference with/without weight quantization</li></ul>|
+
+### Note
+
+- [helper.py](./code/helper.py) is evolved with addition of assignments one by one by adding functions created in the Jupyer notebooks.
 
 ## Related Courses
 
 - [Quantization Fundamentals course](https://github.com/kaushikacharya/Quantization_Fundamentals)
   - Pre-requisite course by the same set of instructors from Hugging Face.
   - Covers common data types, linear quantization (theory and implementation using `Quanto`)
+- Please visit my [Github page](https://kaushikacharya.github.io/courses/) for more courses.
