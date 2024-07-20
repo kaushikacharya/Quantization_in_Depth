@@ -23,6 +23,7 @@ This repository contains
 |1|[Overview](./notes/Lesson_1.md)|<ul><li>Recap of Quantization Fundamentals course</li><li>Topics to be covered in this course</li></ul>|
 |2|[Quantize and De-quantize a Tensor](./notes/Lesson_2.md)|<ul><li>Deep dive into linear quantization</li><li>Learn scaling factor and zero point</li></ul>|
 |3|[Symmetric vs Asymmetric Mode](./notes/Lesson_3.md)|<ul><li>Symmetric mode of linear quantization</li><li>Quantization at different granularities</li></ul>|
+|4|[Custom Build an 8-bit Quantizer](./notes/Lesson_4.md)|<ul><li>Custom build Quantizer class `W8A16LinearLayer`</li></ul>|
 
 ## Assignments
 
@@ -35,6 +36,7 @@ This repository contains
 |3|[L3-C - Linear Quantization II: Per Channel Quantization](./notes/Lesson_3.md#notebook-per-channel-quantization)|<ul><li>Per Channel symmetric quantization</li></ul>|
 |3|[L3-D - Linear Quantization II: Per Group Quantization](./notes/Lesson_3.md#notebook-per-group-quantization)|<ul><li>Per Group symmetric quantization using per-channel quantization under the hood</li></ul>|
 |3|[L3-E - Linear Quantization II: Quantizing Weights & Activations for Inference](./notes/Lesson_3.md#notebook-quantizing-weights--activations-for-inference)|<ul><li>Compares linear inference with/without weight quantization</li></ul>|
+|4|[L4-A - Building your own Quantizer: Custom Build an 8-Bit Quantizer](./notes/Lesson_4.md#notebook-step-1-build-your-own-quantizer)|<ul><li>Custom build Quantizer class `W8A16LinearLayer` to quantize model</li></ul>|
 
 ### Note
 
