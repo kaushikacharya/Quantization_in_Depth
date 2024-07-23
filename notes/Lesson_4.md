@@ -1,5 +1,10 @@
 # Custom Build an 8-bit Quantizer
 
+## Lesson Content
+
+- [Build your own Quantizer (Part 1)](#build-your-own-quantizer-part-1)
+- [Replace PyTorch Layers with Quantized Layers](#replace-pytorch-layers-with-quantized-layers)
+
 ## Build your own Quantizer (Part 1)
 
 ### Project sub-tasks
@@ -19,3 +24,12 @@
 - `quantize` function
   - scale computation in symmetric mode is explained in [Lesson 3](./Lesson_3.md#linear-quantization-mode)
   - ?? Why do we need to cast the weights to float32 for stability?
+
+## Replace PyTorch Layers with Quantized Layers
+
+- A quantization pipeline will iterate over all linear models of the original model and replace that with our linear layer module `W8A16LinearLayer` and call quantize on using the original weights.
+- We'll see later that for language models, it is better to keep the last module unquantized for better results.
+
+### Notebook (Step 2: Replace PyTorch layers with Quantized Layers)
+
+- [Juputer Notebook](../code/L4_building_quantizer_replace_layers.ipynb)

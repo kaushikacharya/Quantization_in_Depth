@@ -2,6 +2,8 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 import torch
+import torch.nn as nn
+import torch.nn.functional as F
 
 def quantization_error(tensor, dequantized_tensor):
     return (tensor - dequantized_tensor).square().mean()
@@ -126,3 +128,47 @@ def linear_q_symmetric_per_channel(r_tensor, dim, dtype=torch.int8):
     quantized_tensor = linear_q_with_scale_and_zero_point(r_tensor, scale=scale, zero_point=0, dtype=dtype)
     
     return quantized_tensor, scale
+
+############# From the previous lesson(s) of "Building your own Quantizer"
+def w8_a16_forward(weight, input, scales, bias=None):
+    casted_weights = weight.to(input.dtype)
+    output = F.linear(input=input, weight=casted_weights) * scales
+
+    if bias is not None:
+        output += bias
+    
+    return output
+
+class W8A16LinearLayer(nn.Module):
+    def __init__(self, in_features, out_features, bias=True, dtype=torch.float32):
+        super().__init__()
+
+        self.register_buffer("int8_weights",
+                              torch.randint(low=-128, high=127, size=(out_features, in_features), dtype=torch.int8)
+                              )
+        
+        self.register_buffer("scales",
+                             torch.randn((1, out_features), dtype=dtype)
+                             )
+        
+        if bias:
+            self.register_buffer("bias",
+                                 torch.randn((1, out_features), dtype=dtype)
+                                 )
+        else:
+            self.bias = None
+    
+    def quantize(self, weights):
+        w_fp32 = weights.clone().to(torch.float32)
+
+        scales = w_fp32.abs().max(dim=-1).values / 127
+        scales = scales.to(weights.dtype)
+
+        int8_weights = torch.round(weights/scales.unsqueeze(1)).to(torch.int8)
+
+        self.int8_weights = int8_weights
+        self.scales = scales
+
+    def forward(self, input):
+        return w8_a16_forward(weight=self.int8_weights, input=input, scales=self.scales, bias=self.bias)
+###################################
