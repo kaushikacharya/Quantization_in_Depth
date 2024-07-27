@@ -4,6 +4,7 @@
 
 - [Build your own Quantizer (Part 1)](#build-your-own-quantizer-part-1)
 - [Replace PyTorch Layers with Quantized Layers](#replace-pytorch-layers-with-quantized-layers)
+- [Quantize any Open Source PyTorch Model](#quantize-any-open-source-pytorch-model)
 
 ## Build your own Quantizer (Part 1)
 
@@ -33,3 +34,12 @@
 ### Notebook (Step 2: Replace PyTorch layers with Quantized Layers)
 
 - [Juputer Notebook](../code/L4_building_quantizer_replace_layers.ipynb)
+
+## Quantize any Open Source PyTorch Model
+
+- Let's test our implementation on quantization on Hugging Face models.
+- For generative models, since the model generates outputs from past inputs, it's an autoregressive model.
+
+### Notebook (Step 3: Quantize any Open Source PyTorch Model)
+
+- [Jupyter Notebook](../code/L4_building_quantizer_quantize_models.ipynb)
