@@ -167,7 +167,7 @@ class W8A16LinearLayer(nn.Module):
                               )
         
         self.register_buffer("scales",
-                             torch.randn((1, out_features), dtype=dtype)
+                             torch.randn((out_features), dtype=dtype)
                              )
         
         if bias:
@@ -191,6 +191,21 @@ class W8A16LinearLayer(nn.Module):
     def forward(self, input):
         return w8_a16_forward(weight=self.int8_weights, input=input, scales=self.scales, bias=self.bias)
 
+def replace_linear_with_target(module, target_class, module_name_to_exclude):
+    for name, child in module.named_children():
+        if isinstance(child, nn.Linear) and not any([x==name for x in module_name_to_exclude]):
+            old_bias = child.bias
+            new_module = target_class(child.in_features,
+                                        child.out_features,
+                                        bias=old_bias is not None,
+                                        dtype=child.weight.dtype)
+            setattr(module, name, new_module)
+
+            if old_bias is not None:
+                getattr(module, name).bias = old_bias
+        else:
+            # Recursively call the function for nested modules
+            replace_linear_with_target(child, target_class, module_name_to_exclude)
 
 def replace_linear_with_target_and_quantize(module, target_class, module_name_to_exclude):
     for name, child in module.named_children():
