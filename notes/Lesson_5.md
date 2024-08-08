@@ -4,6 +4,7 @@
 
 1. [Challenges in Quantization (Part 1)](#challenges-in-quantization-part-1)
 2. [Packing 2-Bit Weights](#packing-2-bit-weights)
+3. [Unpacking 2-bit Weights](#unpacking-2-bit-weights)
 
 ## Lesson Content
 
@@ -41,3 +42,9 @@
 
 - [Jupyter Notebook](../code/L5_packing_2bit_weights.ipynb)
 - Unsigned 8-bit tensor is used for simplicity to avoid handling 1st bit for sign in signed tensor.
+
+## Unpacking 2-bit Weights
+
+### Notebook (Unpacking 2-bit Weights)
+
+- [Jupyter Notebook](../code/L5_unpacking_2bit_weights.ipynb)

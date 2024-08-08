@@ -24,7 +24,7 @@ This repository contains
 |2|[Quantize and De-quantize a Tensor](./notes/Lesson_2.md)|<ul><li>Deep dive into linear quantization</li><li>Learn scaling factor and zero point</li></ul>|
 |3|[Symmetric vs Asymmetric Mode](./notes/Lesson_3.md)|<ul><li>Symmetric mode of linear quantization</li><li>Quantization at different granularities</li></ul>|
 |4|[Custom Build an 8-bit Quantizer](./notes/Lesson_4.md)|<ul><li>Custom build Quantizer class `W8A16LinearLayer`</li><li>Replace linear layers with Quantized layers</li><li>Quantize open-source PyTorch model</li><li>Memory efficient 8-bit loading from Hugging Face Hub by first loading skeleton of the model using meta device</li></ul>|
-|5|[Weights Packing](./notes/Lesson_5.md)|<ul><li>Importance of weights packing</li><li>Implementation from scratch weight packing</li></ul>|
+|5|[Weights Packing](./notes/Lesson_5.md)|<ul><li>Importance of weights packing</li><li>Implementation from scratch weight packing and unpacking</li></ul>|
 
 ## Assignments
 
@@ -42,6 +42,7 @@ This repository contains
 |4|[L4-C - Building your own Quantizer: Quantize any Open Source PyTorch Model](./notes/Lesson_4.md#notebook-step-3-quantize-any-open-source-pytorch-model)|<ul><li>Quantization of open source PyTorch models for the tasks a. code generation b. object detection</li></ul>|
 |4|[L4-D - Building your own Quantizer: Load your Quantized Weights from Hugging Face Hub](./notes/Lesson_4.md#notebook-step-4-load-your-quantized-weights-from-hugging-face-hub)|<ul><li>First load skeleton of the model using meta device</li><li>Replace linear layers with custom build quantizer class `W8A16LinearLayer`</li><li>Then load state dict from the quantized model</li></ul>|
 |5|[L5-B: Packing 2-bit Weights](./notes/Lesson_5.md#notebook-packing-2-bit-weights)|<ul><li>2-bit Packing of `torch.uint8`</li></ul>|
+|5|[L5-C: Unpacking 2-Bit Weights](./notes/Lesson_5.md#notebook-unpacking-2-bit-weights)|<ul><li>Unpacking of 2-bit weights [packed in previous assignment]</li></ul>|
 
 ### Note
 
