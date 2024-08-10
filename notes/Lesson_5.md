@@ -5,6 +5,7 @@
 1. [Challenges in Quantization (Part 1)](#challenges-in-quantization-part-1)
 2. [Packing 2-Bit Weights](#packing-2-bit-weights)
 3. [Unpacking 2-bit Weights](#unpacking-2-bit-weights)
+4. [Beyond Linear Quantization](#beyond-linear-quantization)
 
 ## Lesson Content
 
@@ -48,3 +49,49 @@
 ### Notebook (Unpacking 2-bit Weights)
 
 - [Jupyter Notebook](../code/L5_unpacking_2bit_weights.ipynb)
+
+## Beyond Linear Quantization
+
+- Emergent features for LLMs
+  - Challenge: Features predicted by the model i.e. magnitude of the hidden states started to become large => Classic quantization schemes quite obsolete
+
+- My understanding:
+  - As the classic linear quantization is based on the min and max values in the original data type, outlier impacts these range.
+
+- Outlier features
+  - Hidden states with large magnitude
+
+- LLM.int8()
+  - Proposes decomposition of matrix multiplication of the linear layers in two stages
+    - Two parts:
+      - Outlier part
+      - Non-outlier part
+  - Perform non-outlier part matrix multiplication in int8
+    - And then de-quantize using the scales
+  - Perform outlier part matrix multiplication using the original data type of the hidden state
+  - Then combine the two results.
+
+- SmoothQuant
+  - Specifically applies to A8W8 schemes e.g. we want to quantize both activations and weights
+  - Intuition: Activation `X` is hard to quantize because outliers stretch the quantization range.
+  - Solution: Migrate quantization difficulties from activation to weights
+
+- Recent SOTA quantization methods (chronological order):
+![SOTA quantization methods](../images/5_2.png)
+
+### Challenges of Quantization
+
+- Retraining
+- Limited Hardware support
+  - Focus in this course: W8A16
+  - For better quantization, W8A8 scheme could be preferred but not supported by all hardware.
+- Calibration dataset needed
+- packing / unpacking
+
+### Further reading
+
+- SOTA quantization papers
+- MIT Han lab
+- transformers quantization docs / blogposts
+- llama.cpp discussions
+- Reddit (r/LocalLlama)

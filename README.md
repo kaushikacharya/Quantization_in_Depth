@@ -24,7 +24,7 @@ This repository contains
 |2|[Quantize and De-quantize a Tensor](./notes/Lesson_2.md)|<ul><li>Deep dive into linear quantization</li><li>Learn scaling factor and zero point</li></ul>|
 |3|[Symmetric vs Asymmetric Mode](./notes/Lesson_3.md)|<ul><li>Symmetric mode of linear quantization</li><li>Quantization at different granularities</li></ul>|
 |4|[Custom Build an 8-bit Quantizer](./notes/Lesson_4.md)|<ul><li>Custom build Quantizer class `W8A16LinearLayer`</li><li>Replace linear layers with Quantized layers</li><li>Quantize open-source PyTorch model</li><li>Memory efficient 8-bit loading from Hugging Face Hub by first loading skeleton of the model using meta device</li></ul>|
-|5|[Weights Packing](./notes/Lesson_5.md)|<ul><li>Importance of weights packing</li><li>Implementation from scratch weight packing and unpacking</li></ul>|
+|5|[Weights Packing](./notes/Lesson_5.md)|<ul><li>Importance of weights packing</li><li>Implementation from scratch: Weight Packing and Unpacking</li><li>Challenges in classic linear quantization due to outliers in hidden states</li><li>Brief explanation of SOTA algorithms to address outlier issue</li></ul>|
 
 ## Assignments
 
