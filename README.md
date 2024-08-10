@@ -48,6 +48,11 @@ This repository contains
 
 - [helper.py](./code/helper.py) is evolved with addition of assignments one by one by adding functions created in the Jupyer notebooks.
 
+## Certificate
+
+- [Course completion certificate](https://learn.deeplearning.ai/accomplishments/8a976d57-e3df-425b-85cc-40cb1e7cdd6e)
+- Issued on Aug 2024
+
 ## Related Courses
 
 - [Quantization Fundamentals course](https://github.com/kaushikacharya/Quantization_Fundamentals)
